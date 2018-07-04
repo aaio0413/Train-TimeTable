@@ -1,0 +1,148 @@
+body {
+    font-family: Gill Sans, sans-serif;
+    background-color: rgb(253, 247, 239);
+}
+
+body img {
+    width: 100%;
+    height: 450px;
+}
+
+.head-img-wrapper {
+    width: 100%;
+    height: 400px;
+
+}
+
+.component-wrapper {
+    box-shadow: 2px 4px 3px 0 rgba(0,0,0,.25);
+    background: linear-gradient( rgba(255, 255, 255, 0.9) 0%, white 25%);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9) 0%, white 25%);
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    /* background-repeat-x: initial;
+    background-repeat-y: initial; */
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    position: relative;
+    margin: auto;
+    /* border: solid 2px gray; */
+    /* margin-right: 33%; */
+    margin: 0, 22%;
+    margin-top: -82px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: white;
+    width: 66%;
+    margin-left: 17%;
+    height: 250px;
+    border-radius: 4px;
+}
+
+.text-format {
+    text-align: center;
+
+}
+
+.component-wrapper h1 {
+    margin-top: 20px;
+    font-size: 50px;
+    line-height: 45px;
+    font-weight: 100;
+    color: rgb(247, 170, 18);
+}
+
+.form-wrapper {
+    display: flex;
+    /* flex-direction: row; */
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: 40px auto;
+}
+
+.form-control {
+    height: 38px;
+    border: solid 1px rgb(171, 170, 170);
+}
+
+.form-attribute {
+    display: flex;
+    flex-direction: row;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 21px;
+    font-weight: 300;
+    line-height: 3;
+}
+
+button {
+    width: 108px;
+}
+
+#train-name {
+    width: 136px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+#destination {
+    width: 160px;
+}
+
+#firstTrainTime {
+    width: 210px
+}
+#frequency {
+    width: 120px;
+}
+
+.btn {
+    background-color: rgb(247, 170, 18);
+    color: white;
+    font-family: Gill Sans, sans-serif;
+    font-size: 24px;
+    font-weight: 200;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.table-wrapper {
+    width: 66%;
+    margin: 92px auto;
+    background-color: white;
+}
+
+/* Table */
+
+#time-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#time-table td, #time-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#time-table tr:nth-child(even) { 
+    background-color: #f2f2f2;
+}
+
+#time-table tr:hover {
+    background-color: #ddd;
+}
+
+#time-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
