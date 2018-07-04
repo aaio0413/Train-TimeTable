@@ -113,13 +113,13 @@ button {
     border-bottom-right-radius: 4px;
 }
 
+/* Table */
+
 .table-wrapper {
     width: 66%;
     margin: 92px auto;
     background-color: white;
 }
-
-/* Table */
 
 #time-table {
     border-collapse: collapse;
