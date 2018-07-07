@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <title>Train Dial</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
             <img src='assets/images/casa-port-morocco-casa_05.jpg' alt='picture of train as theme for this web page.'>
         </div>
         <div class='component-wrapper text-format'>
-            <h1>Find your train dial</h1>
+            <h1>Make your train dial</h1>
 
             <div class='form-wrapper'>
                 <form class='form-attribute'>
@@ -30,17 +31,17 @@
 
                     <div class='form-group'>
                         <label for="Destination"></label>
-                        <input type="text" class="form-control" id="destination" placeholder="Toward where?">
+                        <input type="text" class="form-control" id="destination" placeholder="Destination">
                     </div>
 
                     <div class='form-group'>
                         <label for="first-train-time"></label>
-                        <input type="text" class="form-control" id="first-train" placeholder="Choose start date/time">
+                        <input type="text" class="form-control" id="first-train" placeholder="Train's first time">
                     </div>
 
                     <div class='form-group'>
                         <label for="frequency"></label>
-                        <input type="number" class="form-control" id="frequency" placeholder="frequency">
+                        <input type="number" class="form-control" id="frequency" placeholder="Frequency">
                     </div>
 
                     <button type="submit" class="btn" id='add-train-btn'>Add</button>
@@ -48,6 +49,8 @@
             </div>
         </div>
     </header>
+
+    <!-- <button type="submit" class="btn" id='add-train-btn'>Delete All</button> -->
 
     <div class='table-wrapper'>
             
@@ -61,7 +64,7 @@
                     <th scope="col">Minutes Away</th>
                 </tr>
             </thead>
-            <tbody id="tableBody">
+            <tbody id="table-body">
 
             </tbody>
         </table>
