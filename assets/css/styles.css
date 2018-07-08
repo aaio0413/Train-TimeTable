@@ -15,6 +15,7 @@ body img {
 }
 
 .component-wrapper {
+    padding-top: 20px;
     box-shadow: 2px 4px 3px 0 rgba(0,0,0,.25);
     background: linear-gradient( rgba(255, 255, 255, 0.9) 0%, white 25%);
     background-image: linear-gradient(rgba(255, 255, 255, 0.9) 0%, white 25%);
@@ -32,7 +33,7 @@ body img {
     /* border: solid 2px gray; */
     /* margin-right: 33%; */
     margin: 0, 22%;
-    margin-top: -82px;
+    margin-top: -120px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -117,7 +118,7 @@ button {
 
 .table-wrapper {
     width: 66%;
-    margin: 92px auto;
+    margin: 82px auto;
     background-color: white;
 }
 
