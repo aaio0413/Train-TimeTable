@@ -21,9 +21,9 @@ var destination = "";
 var firstTrain = 0;
 var frequency = 0;
 var minAway = 0;
-var count = 0;
+// var count = 0;
 var key;
-var idCount=0;
+// var idCount=0;
 
 $('#add-train-btn').on('click', function(event) {
     event.preventDefault();
@@ -33,18 +33,18 @@ $('#add-train-btn').on('click', function(event) {
     firstTrain = $("#first-train").val().trim();
     frequency = $('#frequency').val().trim();
 
-    if (!('idCount' in localStorage)) {
-        console.log('idCount does not exist in local storage');
-        localStorage.setItem("idCount", count);
-    } else {
-        count = parseInt(localStorage.getItem('idCount')) + 1;
-        // localStorage.setItem('idCount', idCount++);
-        localStorage.setItem("idCount", count);
+    // if (!('idCount' in localStorage)) {
+    //     console.log('idCount does not exist in local storage');
+    //     localStorage.setItem("idCount", count);
+    // } else {
+    //     count = parseInt(localStorage.getItem('idCount')) + 1;
+    //     // localStorage.setItem('idCount', idCount++);
+    //     localStorage.setItem("idCount", count);
         
-        console.log(localStorage.getItem('idCount'));
-    }
+    //     console.log(localStorage.getItem('idCount'));
+    // }
 
-    idCount = parseInt(localStorage.getItem('idCount'));
+    // idCount = parseInt(localStorage.getItem('idCount'));
 
     // First Time (pushed back 1 year to make sure it comes before current time)
     var firstTimeConverted = moment(firstTrain, "HH:mm").subtract(1, "years");
@@ -63,21 +63,20 @@ $('#add-train-btn').on('click', function(event) {
         firstTrain: firstTrain,
         frequency: frequency,
         nextArrival: nextArrival,
-        minAway: tMinutesTillTrain,
-        count: idCount
+        minAway: tMinutesTillTrain
     })
 
 });
 
 dataRef.ref().on("child_added", function(childSnapshot) {
-    itemCount = childSnapshot.val().count;
-
-    $("#table-body").append("<tr class='table-content' id='" + itemCount + "'><td class='train-name'> " + childSnapshot.val().trainName +
+    // itemCount = childSnapshot.val().count;
+    //console.log('childSnapShot.key', childSnapshot.key);
+    $("#table-body").append("<tr class='table-content' id='" + childSnapshot.key + "'><td class='train-name'> " + childSnapshot.val().trainName +
       " </td><td class='destination'> " + childSnapshot.val().destination +
         " </td><td class='frequency'> " + childSnapshot.val().frequency + 
           " </td><td class='next-arrival'> " + childSnapshot.val().nextArrival + 
           " </td><td class='min-away'> " + childSnapshot.val().minAway + 
-          " </td><td><button type='submit' class='delete-item-btn' id='" + itemCount + "'>Delete</button></td></tr>");
+          " </td><td><button type='submit' class='delete-item-btn' data-key='" + childSnapshot.key + "'>Delete</button></td></tr>");
 
   // Handle the errors
   }, function(errorObject) {
@@ -90,28 +89,26 @@ $('#delete-btn').on('click', function() {
     console.log('success?');
     $('#table-body').empty();
 
-    localStorage.clear();
-    count = 0;
+    // localStorage.clear();
+    // count = 0;
 });
 
 
 $(document).on('click', '.delete-item-btn', function() {
-    var item = parseInt($(this).attr('id'), 10);
-    var buttonNum = (item +0);
+    var key = $(this).data('key');
 
-    console.log('button is clicked, the itemCount for this item is: ' + buttonNum);
-    alert(buttonNum);
+    // console.log('button is clicked, the key for this item is: ' + $(this).data('key'));
+    // alert($(this).data('key'));
 
-    dataRef.ref().orderByChild('count').equalTo(buttonNum).on("child_added", function(snapshot) {
-        console.log(snapshot.key);
-        key = snapshot.key;
-    });
+    // dataRef.ref().orderByChild('count').equalTo(buttonNum).on("child_added", function(snapshot) {
+    //     console.log(snapshot.key);
+    //     key = snapshot.key;
+    // });
 
     dataRef.ref().child(key).remove();
-    console.log('success?');
+    //console.log('success?');
 
-    var removeHtml = $('.table-content#' + buttonNum);
-    removeHtml.remove();
+    $('#' + key).remove();
 
 
 });
